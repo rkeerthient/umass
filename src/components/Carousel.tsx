@@ -1,8 +1,7 @@
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Image } from "@yext/sites-components";
+import { Image } from "@yext/pages-components";
 import Cta from "./cta";
 import HoursText from "./HoursText";
 import { BsPhone } from "react-icons/bs";
