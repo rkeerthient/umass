@@ -24,7 +24,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
 }): HeadConfig => {
   return {
-    title: "Verizon | Search",
+    title: "UMASS | Search",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [

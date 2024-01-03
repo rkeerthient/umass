@@ -16,10 +16,12 @@ import {
 import { useEffect } from "react";
 import Loader from "../components/Loader";
 import SortDropdown from "../components/SortDropdown";
+import ProductCard from "../components/Cards/ProductCard";
 
 const ProductsPage = () => {
   const searchActions = useSearchActions();
   const loading = useSearchState((state) => state.searchStatus.isLoading);
+  console.log("enmtered");
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -59,11 +61,11 @@ const ProductsPage = () => {
           <div className={`flex mt-4 `}>
             <div className="w-72 mr-5 hidden md:block">
               <Facets customCssClasses={{ facetsContainer: "mr-10" }}>
-                <NumericalFacet
-                  fieldId="c_price.value"
+                {/* <NumericalFacet
+                  fieldId="Price.value"
                   label="Price"
                   transformOptions={transformPriceFacet}
-                />
+                /> */}
               </Facets>
             </div>
             <div className={`w-full `}>
@@ -76,9 +78,9 @@ const ProductsPage = () => {
               </div>
               <div className="flex flex-col space-y-4 ">
                 <VerticalResults
-                  CardComponent={StandardCard}
+                  CardComponent={ProductCard}
                   customCssClasses={{
-                    verticalResultsContainer: `grid grid-cols-1 md:grid-cols-3 gap-4`,
+                    verticalResultsContainer: `flex gap-4 flex-col`,
                   }}
                 />
                 <div>
