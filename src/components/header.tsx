@@ -1,4 +1,3 @@
-
 import Cta from "../components/cta";
 
 type Link = {
@@ -29,7 +28,7 @@ const Header = () => {
   return (
     <>
       <div className="centered-container">
-        <nav className="py-6 flex items-center justify-between">
+        <nav className="py-6 flex items-center justify-between invisible">
           <img
             src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
             width="50"

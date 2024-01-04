@@ -5,15 +5,15 @@ import {
   Pagination,
   VerticalResults,
   Geolocation,
-  StandardCard,
   Facets,
+  FilterSearch,
 } from "@yext/search-ui-react";
 import { useEffect } from "react";
 import Loader from "../components/Loader";
 import SortDropdown from "../components/SortDropdown";
-import InvoiceCard from "../components/Cards/InvoiceCard";
+import POCard from "../components/Cards/POCard";
 
-const InvoicesPage = () => {
+const POsPage = () => {
   const searchActions = useSearchActions();
   const loading = useSearchState((state) => state.searchStatus.isLoading);
 
@@ -21,7 +21,7 @@ const InvoicesPage = () => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const query = urlSearchParams.get("query");
     query && searchActions.setQuery(query);
-    searchActions.setVertical("invoices");
+    searchActions.setVertical("purchase_orders");
     searchActions.executeVerticalQuery();
   }, []);
 
@@ -45,9 +45,9 @@ const InvoicesPage = () => {
               </div>
               <div className="flex flex-col space-y-4 ">
                 <VerticalResults
-                  CardComponent={InvoiceCard}
+                  CardComponent={POCard}
                   customCssClasses={{
-                    verticalResultsContainer: `flex flex-col gap-4`,
+                    verticalResultsContainer: `flex gap-4 flex-col`,
                   }}
                 />
                 <div>
@@ -63,4 +63,4 @@ const InvoicesPage = () => {
   );
 };
 
-export default InvoicesPage;
+export default POsPage;

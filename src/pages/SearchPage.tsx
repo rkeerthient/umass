@@ -6,6 +6,7 @@ import ProductsPage from "./ProductsPage";
 import VendorsPage from "./VendorsPage";
 import InvoicesPage from "./InvoicesPage";
 import UniversalPage from "./UniversalPage";
+import POsPage from "./POsPage";
 
 export const universalLimit = {
   products: 5,
@@ -36,6 +37,10 @@ const SearchPage = () => {
     {
       label: "Invoices ",
       id: "invoices",
+    },
+    {
+      label: "Puchase Orders ",
+      id: "orders",
     },
   ];
 
@@ -88,7 +93,7 @@ const SearchPage = () => {
 
   return (
     <div className="w-full md:px-10 ">
-      <SearchBar 
+      <SearchBar
         hideRecentSearches={true}
         customCssClasses={{
           searchBarContainer: "!mb-0 flex-1 searchBar",
@@ -123,6 +128,8 @@ const SearchPage = () => {
         <VendorsPage />
       ) : currentPath.id === "invoices" ? (
         <InvoicesPage />
+      ) : currentPath.id === "orders" ? (
+        <POsPage />
       ) : (
         <UniversalPage />
       )}

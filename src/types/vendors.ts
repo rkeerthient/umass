@@ -1,3 +1,20 @@
+export interface Address {
+	line1?: string,
+	line2?: string,
+	line3?: string,
+	sublocality?: string,
+	city?: string,
+	region?: string,
+	postalCode?: string,
+	extraDescription?: string,
+	countryCode?: string,
+}
+
+export interface Coordinate {
+	latitude?: number,
+	longitude?: number,
+}
+
 export interface ImageThumbnail {
 	url: string,
 	width: number,
@@ -44,8 +61,10 @@ export interface ComplexImage {
 }
 
 export default interface Ce_vendor {
+	address?: Address,
 	description?: string,
 	name: string,
+	cityCoordinate?: Coordinate,
 	c_commodityCode?: string,
 	c_contractVehicles?: string[],
 	c_currentVendor?: boolean,
@@ -59,6 +78,17 @@ export default interface Ce_vendor {
 	c_secondaryCTA?: C_secondaryCTA,
 	c_vendorID?: string,
 	c_vendorProducts?: string[],
+	displayCoordinate?: Coordinate,
+	dropoffCoordinate?: Coordinate,
 	photoGallery?: ComplexImage[],
+	geocodedCoordinate?: Coordinate,
+	pickupCoordinate?: Coordinate,
+	routableCoordinate?: Coordinate,
 	id: string,
+	walkableCoordinate?: Coordinate,
+	yextDisplayCoordinate?: Coordinate,
+	yextDropoffCoordinate?: Coordinate,
+	yextPickupCoordinate?: Coordinate,
+	yextRoutableCoordinate?: Coordinate,
+	yextWalkableCoordinate?: Coordinate,
 }

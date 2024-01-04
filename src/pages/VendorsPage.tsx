@@ -7,10 +7,12 @@ import {
   Geolocation,
   StandardCard,
   Facets,
+  FilterSearch,
 } from "@yext/search-ui-react";
 import { useEffect } from "react";
 import Loader from "../components/Loader";
 import SortDropdown from "../components/SortDropdown";
+import VendorCard from "../components/Cards/VendorCard";
 
 const VendorsPage = () => {
   const searchActions = useSearchActions();
@@ -24,29 +26,43 @@ const VendorsPage = () => {
     searchActions.executeVerticalQuery();
   }, []);
 
+  const handleSelect = () => {};
+
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <div className={`flex mt-4 `}>
-            <div className="w-72 mr-5 hidden md:block">
-              <Facets customCssClasses={{ facetsContainer: "mr-10" }}></Facets>
+          <div className={`flex flex-col gap-4 mt-4 `}>
+            <div className="my-4 w-full">
+              <div className="w-2/3 mx-auto">
+                <FilterSearch
+                  placeholder="Seach vendor Locations"
+                  searchOnSelect={true}
+                  searchFields={[
+                    {
+                      entityType: "ce_vendor",
+                      fieldApiName: "builtin.location",
+                    },
+                  ]}
+                />
+              </div>
             </div>
+
             <div className={`w-full `}>
               <div className="hidden md:flex w-full items-baseline justify-between">
                 <ResultsCount />
-                <SortDropdown />
+                {/* <SortDropdown /> */}
               </div>
               <div className="flex justify-between mb-4">
                 <AppliedFilters />
               </div>
               <div className="flex flex-col space-y-4 ">
                 <VerticalResults
-                  CardComponent={StandardCard}
+                  CardComponent={VendorCard}
                   customCssClasses={{
-                    verticalResultsContainer: `grid grid-cols-1 md:grid-cols-3 gap-4`,
+                    verticalResultsContainer: `flex  flex-col gap-4`,
                   }}
                 />
                 <div>

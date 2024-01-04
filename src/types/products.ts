@@ -413,6 +413,7 @@ export default interface Product {
 	unitPricingBaseMeasure?: UnitPricingBaseMeasure,
 	unitPricingMeasure?: UnitPricingMeasure,
 	name: string,
+	c_invoicesProducts?: EntityReference[],
 	commerce_linkedProductCategory?: EntityReference[],
 	c_manufacturerName?: string,
 	c_partNumber?: string,
