@@ -6,8 +6,6 @@ const VendorCard = (props: CardProps<Ce_vendor>) => {
   const { name } = result;
   const { c_relatedOrders, c_relatedProduct, address } = result.rawData;
 
-  console.log(JSON.stringify(result));
-
   return (
     <div className=" w-full p-4 border justify-between items-center  grid grid-cols-3 gap-4">
       <div className="flex flex-col gap-2">

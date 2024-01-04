@@ -28,16 +28,16 @@ const sortByOptions: { label: string; sortBy: SortBy }[] = [
   {
     label: "Price: High-Low",
     sortBy: {
-      field: "c_price.value",
-      direction: Direction.Ascending,
+      field: "price.value",
+      direction: Direction.Descending,
       type: SortType.Field,
     },
   },
   {
     label: "Price: Low-High",
     sortBy: {
-      field: "c_price.value",
-      direction: Direction.Descending,
+      field: "price.value",
+      direction: Direction.Ascending,
       type: SortType.Field,
     },
   },

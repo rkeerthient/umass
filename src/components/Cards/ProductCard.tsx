@@ -16,10 +16,9 @@ const ProductCard = (props: CardProps<Product>) => {
   return (
     <div className="flex w-full py-4 border justify-between items-center gap-4">
       <div className="flex justify-center w-1/6">
-        <div className="flex max-w-[150px] w-full flex-col border py-6 px-8 text-xl font-bold justify-center items-center">
-          <div>$</div>
+        <div className="flex max-w-[150px] w-full flex-col border py-6 px-4 text-xl font-bold justify-center items-center">
           {price?.value ? (
-            <div>{price?.value}</div>
+            <div>${price?.value}</div>
           ) : (
             <div className="text-sm">On Request</div>
           )}

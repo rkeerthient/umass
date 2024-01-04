@@ -21,10 +21,9 @@ const InvoiceCard = (props: CardProps<Ce_invoice>) => {
   return (
     <div className="flex w-full py-4 border justify-between items-center gap-4">
       <div className="flex justify-center w-1/6">
-        <div className="flex max-w-[150px] w-full flex-col border py-6 px-8 text-xl font-bold justify-center items-center">
-          <div>$</div>
+        <div className="flex max-w-[150px] w-full flex-col border py-6 px-4 text-xl font-bold justify-center items-center">
           {c_amount ? (
-            <div>{c_amount}</div>
+            <div>${c_amount}</div>
           ) : (
             <div className="text-sm">On Request</div>
           )}
