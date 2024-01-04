@@ -4,8 +4,15 @@ import Product from "../../types/products";
 const ProductCard = (props: CardProps<Product>) => {
   const { result } = props;
   const { name, id } = result;
-  const { price, c_supplierName, sku, c_relatedVendors, c_primaryCTA } =
-    result.rawData;
+  const {
+    price,
+    c_supplierName,
+    sku,
+    c_relatedVendors,
+    c_primaryCTA,
+    c_partNumber,
+    c_manufacturerName,
+  } = result.rawData;
   return (
     <div className="flex w-full py-4 border justify-between items-center gap-4">
       <div className="flex justify-center w-1/6">
@@ -23,9 +30,37 @@ const ProductCard = (props: CardProps<Product>) => {
           <div className="flex flex-col gap-2">
             <div className="text-xl font-bold">{name}</div>
             <div className="flex gap-1">
-              <div>SKU #: {id}</div>
-              <div>|</div>
-              <div>Supplier Name : {c_supplierName}</div>
+              <div>
+                <span className="font-semibold">SKU # : </span>
+                {id}
+              </div>
+              {c_supplierName && (
+                <>
+                  <div>|</div>
+                  <div>
+                    <span className="font-semibold"> Supplier Name : </span>
+                    {c_supplierName}
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="flex gap-1">
+              {c_partNumber && (
+                <div>
+                  <span className="font-semibold">Part # : </span>
+                  {c_partNumber}
+                </div>
+              )}
+              {c_manufacturerName && (
+                <>
+                  {" "}
+                  <div>|</div>
+                  <div>
+                    <span className="font-semibold">Manufacturer Name : </span>
+                    {c_manufacturerName}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
