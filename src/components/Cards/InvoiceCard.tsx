@@ -1,5 +1,4 @@
 import { CardProps } from "@yext/search-ui-react";
-import Ce_vendor from "../../types/vendors";
 import Ce_invoice from "../../types/invoices";
 
 const InvoiceCard = (props: CardProps<Ce_invoice>) => {
@@ -15,8 +14,6 @@ const InvoiceCard = (props: CardProps<Ce_invoice>) => {
     c_relatedPurchaseOrder,
     c_amount,
   } = result.rawData;
-
-  console.log(JSON.stringify(result));
 
   return (
     <div className="flex w-full py-4 border justify-between items-center gap-4">
@@ -88,16 +85,6 @@ const InvoiceCard = (props: CardProps<Ce_invoice>) => {
           </>
         )}
       </div>
-      {/* <div className="w-1/4">
-        {c_primaryCTA && (
-          <a
-            href={c_primaryCTA.link}
-            className="py-2 text-sm px-2 border text-white bg-black hover:bg-white hover:border-black hover:text-black"
-          >
-            {c_primaryCTA.label}
-          </a>
-        )}
-      </div> */}
     </div>
   );
 };
