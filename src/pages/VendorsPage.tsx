@@ -5,19 +5,16 @@ import {
   Pagination,
   VerticalResults,
   Geolocation,
-  StandardCard,
-  Facets,
   FilterSearch,
 } from "@yext/search-ui-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
-import SortDropdown from "../components/SortDropdown";
 import VendorCard from "../components/Cards/VendorCard";
 
 const VendorsPage = () => {
   const searchActions = useSearchActions();
   const loading = useSearchState((state) => state.searchStatus.isLoading);
-
+  const [showFilter, setShowFilter] = useState(false);
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const query = urlSearchParams.get("query");
@@ -25,8 +22,6 @@ const VendorsPage = () => {
     searchActions.setVertical("vendors");
     searchActions.executeVerticalQuery();
   }, []);
-
-  const handleSelect = () => {};
 
   return (
     <>
@@ -36,17 +31,28 @@ const VendorsPage = () => {
         <>
           <div className={`flex flex-col gap-4 mt-4 `}>
             <div className="my-4 w-full">
-              <div className="w-2/3 mx-auto">
-                <FilterSearch
-                  placeholder="Seach vendor Locations"
-                  searchOnSelect={true}
-                  searchFields={[
-                    {
-                      entityType: "ce_vendor",
-                      fieldApiName: "builtin.location",
-                    },
-                  ]}
-                />
+              <div className=" mx-auto flex items-center gap-4 ">
+                <div
+                  className="border py-1 px-4 mt-1 bg-black text-white hover:cursor-pointer rounded-md"
+                  onClick={() => setShowFilter(!showFilter)}
+                >
+                  {showFilter ? `Hide` : `Show`} advanced search
+                </div>
+                <div
+                  className={`${showFilter ? `visible` : `invisible`} w-2/3`}
+                >
+                  <FilterSearch
+                    customCssClasses={{ filterSearchContainer: "-mb-2" }}
+                    placeholder="Seach vendor Locations"
+                    searchOnSelect={true}
+                    searchFields={[
+                      {
+                        entityType: "ce_vendor",
+                        fieldApiName: "builtin.location",
+                      },
+                    ]}
+                  />
+                </div>
               </div>
             </div>
 
